@@ -14,6 +14,7 @@ function Article (opts) {
 Article.prototype.toHtml = function() {
   var $newArticle = $('article.template').clone();
   $newArticle.attr('data-category', this.category);
+  $newArticle.removeClass('template');
 
   $newArticle.find('a').attr('href', this.authorUrl);
   $newArticle.find('a').html(this.author);

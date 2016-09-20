@@ -14,7 +14,6 @@ function Article (opts) {
 Article.prototype.toHtml = function() {
   var $newArticle = $('article.template').clone();
   $newArticle.attr('data-category', this.category);
-  $newArticle.removeClass('template');
 
   $newArticle.find('a').attr('href', this.authorUrl);
   $newArticle.find('a').html(this.author);
@@ -40,6 +39,8 @@ Article.prototype.toHtml = function() {
   as it now has real data attached to it! We need to account
   for that before this current article gets rendered to our
   DOM. */
+
+  $newArticle.removeClass('template');
 
   return $newArticle;
 };
